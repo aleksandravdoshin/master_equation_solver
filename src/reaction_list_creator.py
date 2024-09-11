@@ -149,7 +149,7 @@ def make_reaction_list_basic(n, constants):
 
     for i in range(2, n+2, 2):
         reaction_list += make_basic_reactions(i, **constants)
-    reaction_list = reaction_list[:-2]
+    reaction_list = reaction_list[:-1]
 
     return reaction_list
 
