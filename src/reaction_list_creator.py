@@ -83,7 +83,7 @@ def make_constants_c4_ads_des(barriers, T=300, des_barrier=None):
     k = {}
     e_c4_ads = barriers['c4_adsorption']
     e_c4_des = barriers['c4_desorbtion']
-    if des_barrier is not None:
+    if des_barrier is not None and des_barrier != 0:
         if e_c4_ads > 0:
             e_c4_ads += des_barrier
         else:
@@ -114,7 +114,9 @@ def make_constants_c4_chem_ads_des(barriers, T=300, des_barrier=None):
     k['k_dechemisorption'] = Eyring_k(e_c4_des, T)
     return k
 
-def make_all_dft_constants(barriers, T=300, c2_ins_barrier=None, c2_barrier=None, c2_chem_barrier=None, c4_barrier=None, c4_chem_barrier=None):
+def make_all_dft_constants(barriers, T=300, c2_ins_barrier=None, 
+                           c2_barrier=None, c2_chem_barrier=None, 
+                           c4_barrier=None, c4_chem_barrier=None):
     k = make_constants_insertion(barriers, T, c2_ins_barrier)
     k.update(make_constants_c2_ads_des(barriers, T, c2_barrier))
     k.update(make_constants_c2_chem_ads_des(barriers, T, c2_chem_barrier))
