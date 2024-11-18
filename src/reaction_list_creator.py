@@ -119,9 +119,9 @@ def make_all_dft_constants(barriers, T=300, c2_ins_barrier=None,
                            c4_barrier=None, c4_chem_barrier=None):
     k = make_constants_insertion(barriers, T, c2_ins_barrier)
     k.update(make_constants_c2_ads_des(barriers, T, c2_barrier))
-    k.update(make_constants_c2_chem_ads_des(barriers, T, c2_chem_barrier))
+    # k.update(make_constants_c2_chem_ads_des(barriers, T, c2_chem_barrier))
     k.update(make_constants_c4_ads_des(barriers, T, c4_barrier))
-    k.update(make_constants_c4_chem_ads_des(barriers, T, c4_chem_barrier))
+    # k.update(make_constants_c4_chem_ads_des(barriers, T, c4_chem_barrier))
     return k
 
 def border_constants(constants, borders):
